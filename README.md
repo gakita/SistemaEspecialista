@@ -15,9 +15,12 @@
 O programa utiliza duas bibliotecas externas,utiliza customtkinter e tkinter para a criação de uma interface gráfica.
 Para a instalação das bibliotecas execute os seguintes comandos no terminal
 
+
+### Biblioteca TKinter:
 ```
 pip install tk
 ```
+### Biblioteca Customtkinter
 ```
 pip install customtkinter
 ```
