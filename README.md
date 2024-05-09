@@ -2,6 +2,13 @@
 
 ## Exemplo:
 
+![Exemplo 1](images/img.png)
+
+## Exemplo 2:
+
+
+![Exemplo 2](images/img1.png)
+
 ### Para a plena funcionalidade favor executar os seguintes passos
 
 ### Instalação
