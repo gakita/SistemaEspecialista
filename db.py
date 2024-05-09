@@ -184,13 +184,10 @@ jogos = [
     }
 ]
 
-for i in jogos:
-  i["OCORRENCIAS"]=0
-  i["PERCENTUAL"]=0
-
-todas_opcoes = []
+todas_opcoes = ["Selecionar"]
 
 for jogo in jogos:
     for opcao in jogo["caracteristicas"]:
+        #se a opção ainda não estiver na lista de todas as opções adiciona ao fim do vetor
         if opcao not in todas_opcoes:
-            todas_opcoes.append(opcao)
+            todas_opcoes.append(opcao.upper())
