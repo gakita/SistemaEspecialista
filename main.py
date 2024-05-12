@@ -26,9 +26,12 @@ class Main:
             soma = 0
             total = 0
             nome = i["nome"]
+            #acessa as características do dicionário
             caracteristicas = i["caracteristicas"]
+            #passa por todos os pesos 
             for caracteristica in caracteristicas.keys():
                 total += caracteristicas[caracteristica]
+                #se a caracteristica estiver presente em uma das opções somar todos os pesos
                 if caracteristica.upper() in inputs:
                     soma += caracteristicas[caracteristica]
             percentual = 100*soma/total
@@ -40,26 +43,26 @@ class Main:
         for jogo in jogos:
             self.tree.insert("", "end", values=(jogo[0], f"{jogo[1]:.2f}%"))
 
-
+#Essa função cria a tela e poosiciona os elementos na mesma
     def criar_tela(self):
 
         self.container = ctk.CTkFrame(self.root)
         self.container.grid(row=0, column=0, padx=13.5, pady=13.4)
-
+#cria a seleção de menu
         self.escolha1 = ctk.CTkOptionMenu(self.container,values=db.todas_opcoes,)
         self.escolha1.grid(row=0, column=0, padx=20, pady=20)
-
+#cria a seleção de menu
         self.escolha2 = ctk.CTkOptionMenu(self.container, values=db.todas_opcoes, )
         self.escolha2.grid(row=1, column=0, padx=20, pady=20)
-
+#cria a seleção de menu
         self.escolha3 = ctk.CTkOptionMenu(self.container, values=db.todas_opcoes, )
         self.escolha3.grid(row=2, column=0, padx=20, pady=20)
-
+#cria um botão que atualiza a tela de escolha
         self.update_button = ctk.CTkButton(self.container, text="Atualizar", command=self.analisador)
         self.update_button.grid(row=3, column=0, padx=20, pady=20)
 
         self.treeview()
-
+#Essa função tem a funcionalidade de criar a tabela branca onde serão mostrados os jogos
     def treeview(self):
         self.tree = ttk.Treeview(self.container)
         self.tree.grid(row=0, column=2,rowspan=4, padx=20, pady=20)
