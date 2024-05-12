@@ -15,6 +15,7 @@ class Main:
     def analisador(self):
         """Esta função faz a analise do jogo e mostra os 3 jogos mais compatíveis passando por uma lista de inputs, que sao as caracteristicas do jogo,cria um dicionario para armazenar o rótulo e o percentual e depois mostra os 3 jogos mais compatíveis"""
         self.tree.delete(*self.tree.get_children())
+        #A variavel "inputs" funciona como um vetor de escolhas
         inputs = [
             self.escolha1.get(),
             self.escolha2.get(),
@@ -25,21 +26,31 @@ class Main:
         for i in db.jogos:
             soma = 0
             total = 0
+            #A variavel nome existe para armazenar o nome do jogo
             nome = i["nome"]
-            #acessa as características do dicionário
+            #armazena as características do dicionário
             caracteristicas = i["caracteristicas"]
-            #passa por todos os pesos 
+            #passa por todos as caracteristicas 
             for caracteristica in caracteristicas.keys():
+                #total armazena a caracteristica da caracteristica ou seja o peso
+                #a conta é propositalmente feita utilizando o total para que apenas as caracteristicas principais prevaleçam
+                #quanto mais genérico for o jogo mais baixa será a sua porcentagem
                 total += caracteristicas[caracteristica]
                 #se a caracteristica estiver presente em uma das opções somar todos os pesos
                 if caracteristica.upper() in inputs:
                     soma += caracteristicas[caracteristica]
+            #feito por uma regra de três
             percentual = 100*soma/total
+            #O percentual não chega a 100%, os percentuais mostrados indicam a porcentagem de similaridade
+            # do jogo escolhido com as caracteristicas escolhidas
+            
             #o dicionário irá armazenar o rótulo e o percentual
+            # jogos refere ao dicionario criado no codigo main e não no codigo db.py
             jogos[nome] = percentual
-
+        #jogos.items pega o rótulo e o valor transformando-a em uma matriz,o key=lambda busca o percentual
         jogos= sorted(jogos.items(), key=lambda x: x[1], reverse=True)[0:3]
 
+        #loopa por todos os jogos e insere os valores em seus devidos lugar buscando o dado pelo tupla
         for jogo in jogos:
             self.tree.insert("", "end", values=(jogo[0], f"{jogo[1]:.2f}%"))
 
