@@ -26,7 +26,7 @@ class Main:
             self.escolha3.get()
         ]
 
-        # esse jogos serve como um dicionário, onde irá armazenar o rótulo(nome) e o percentual(percentual)
+        # Esse jogos serve como um dicionário, onde irá armazenar o rótulo(nome) e o percentual(percentual)
 
         jogos = {}
 
@@ -40,11 +40,11 @@ class Main:
 
             nome = i["nome"]
 
-            # armazena as características do dicionário
+            # Armazena as características do dicionário
 
             caracteristicas = i["caracteristicas"]
 
-            # passa por todos as caracteristicas
+            # Passa por todos as caracteristicas
 
             for caracteristica in caracteristicas.keys():
 
