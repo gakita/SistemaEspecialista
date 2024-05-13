@@ -109,6 +109,7 @@ class Main:
         self.treeview()
 
     # Essa função tem a funcionalidade de criar a tabela branca onde serão mostrados os jogos
+    
     def treeview(self):
         self.tree = ttk.Treeview(self.container)
         self.tree.grid(row=0, column=2, rowspan=4, padx=20, pady=20)
